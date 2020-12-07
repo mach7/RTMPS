@@ -8,7 +8,8 @@ ENV NGINX_RTMP_MODULE_VERSION 1.2.1
 
 # Install Nano
 RUN apt-get update && \
-    apt-get install -y nano
+    apt-get install -y nano && \
+    wget
 
 # Install dependencies Stunnel4
 RUN apt-get update && \
@@ -85,13 +86,10 @@ ENV FACEBOOK_KEY ""
 ENV INSTAGRAM_URL rtmp://127.0.0.1:19351/rtmp/
 ENV INSTAGRAM_KEY ""
 
-<<<<<<< Updated upstream
 #TWITCH
 ENV TWITCH_URL rtmp://live.twitch.tv/app/
 ENV TWITCH_KEY ""
 
-=======
->>>>>>> Stashed changes
 ENV DEBUG ""
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
