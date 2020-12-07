@@ -7,10 +7,11 @@ ENV NGINX_VERSION nginx-1.18.0
 ENV NGINX_RTMP_MODULE_VERSION 1.2.1
 
 # Install Nano
-#RUN apt-get update && \
-#    apt-get install -y nano && \
-#    wget https://raw.githubusercontent.com/mach7/rtmps/main/nginx.conf && \
-#    cp -rf nginx.conf /etc/nginx/nginx.conf
+RUN apt-get update && \
+    apt-get install -y nano && \
+    cd ~/ && \
+    wget -O ~/nginx.conf https://raw.githubusercontent.com/mach7/rtmps/main/nginx.conf && \
+    cp -rf ~/nginx.conf /etc/nginx/nginx.conf
 
 # Install dependencies Stunnel4
 RUN apt-get update && \
@@ -76,7 +77,7 @@ ENV TWITCH_URL rtmp://live.twitch.tv/app/
 ENV TWITCH_KEY ""
 
 #Youtube
-ENV YOUTUBE_URL rtmp://a.rtmp.youtube.com/live2/
+ENV YOUTUBE_URL rtmp://a.rtmp.youtube.com/live22/
 ENV YOUTUBE_KEY ""
 
 #Facebook
