@@ -69,6 +69,10 @@ COPY stunnel/fb.conf /etc/stunnel/conf.d/fb.conf
 #Instagram Stunnel Port 19351
 COPY stunnel/instagram.conf /etc/stunnel/conf.d/instagram.conf
 
+#Twitch
+ENV TWITCH_URL rtmp://live.twitch.tv/app/
+ENV TWITCH_KEY ""
+
 #Youtube
 ENV YOUTUBE_URL rtmp://a.rtmp.youtube.com/live2/
 ENV YOUTUBE_KEY ""
@@ -81,10 +85,13 @@ ENV FACEBOOK_KEY ""
 ENV INSTAGRAM_URL rtmp://127.0.0.1:19351/rtmp/
 ENV INSTAGRAM_KEY ""
 
+<<<<<<< Updated upstream
 #TWITCH
 ENV TWITCH_URL rtmp://live.twitch.tv/app/
 ENV TWITCH_KEY ""
 
+=======
+>>>>>>> Stashed changes
 ENV DEBUG ""
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
