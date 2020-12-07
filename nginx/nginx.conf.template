@@ -11,10 +11,11 @@ rtmp {
         application live {
             live on;
             record off;
+            #twitch
             #facebook
             #youtube
         }
-        
+
         application instagram {
             live on;
             record off;

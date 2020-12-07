@@ -6,6 +6,10 @@ LABEL maintainer="Thiago Lima <contact@thiagoemmanuel.com>"
 ENV NGINX_VERSION nginx-1.18.0
 ENV NGINX_RTMP_MODULE_VERSION 1.2.1
 
+# Install Nano
+RUN apt-get update && \
+    apt-get install -y nano
+
 # Install dependencies Stunnel4
 RUN apt-get update && \
     apt-get install -y ca-certificates openssl libssl-dev stunnel4 gettext && \
@@ -55,7 +59,7 @@ COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
 # Config Stunnel
 RUN mkdir -p  /etc/stunnel/conf.d
-# Set up config file 
+# Set up config file
 COPY stunnel/stunnel.conf /etc/stunnel/stunnel.conf
 COPY stunnel/stunnel4 /etc/default/stunnel4
 
@@ -76,6 +80,10 @@ ENV FACEBOOK_KEY ""
 #Instagram
 ENV INSTAGRAM_URL rtmp://127.0.0.1:19351/rtmp/
 ENV INSTAGRAM_KEY ""
+
+#TWITCH
+ENV TWITCH_URL rtmp://live.twitch.tv/app/
+ENV TWITCH_KEY ""
 
 ENV DEBUG ""
 
