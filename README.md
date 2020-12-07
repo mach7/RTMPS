@@ -6,23 +6,23 @@ module for streaming and [**Stunnel**](https://www.stunnel.org/) to add TLS encr
 
 ## Description
 
-This [**Docker**](https://www.docker.com/) image can be used to create an RTMP server for multimedia / video 
-streaming using [**Nginx**](http://nginx.org/en/), [**nginx-rtmp-module**](https://github.com/arut/nginx-rtmp-module) 
+This [**Docker**](https://www.docker.com/) image can be used to create an RTMP server for multimedia / video
+streaming using [**Nginx**](http://nginx.org/en/), [**nginx-rtmp-module**](https://github.com/arut/nginx-rtmp-module)
 and [**Stunnel**](https://www.stunnel.org/),
 built from the current latest sources (Nginx 1.18.0 , nginx-rtmp-module 1.2.1 and Stunnel 4).
 
 This was inspired by other similar previous images from [tiangolo](https://hub.docker.com/r/tiangolo/nginx-rtmp/),
-[dvdgiessen](https://hub.docker.com/r/dvdgiessen/nginx-rtmp-docker/), 
-[jasonrivers](https://hub.docker.com/r/jasonrivers/nginx-rtmp/), 
-[aevumdecessus](https://hub.docker.com/r/aevumdecessus/docker-nginx-rtmp/) and by an 
+[dvdgiessen](https://hub.docker.com/r/dvdgiessen/nginx-rtmp-docker/),
+[jasonrivers](https://hub.docker.com/r/jasonrivers/nginx-rtmp/),
+[aevumdecessus](https://hub.docker.com/r/aevumdecessus/docker-nginx-rtmp/) and by an
 [OBS Studio post](https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50/).
 
-The main purpose (and test case) to build it was to allow streaming from 
+The main purpose (and test case) to build it was to allow streaming from
 [**OBS Studio**](https://obsproject.com/) to different clients at the same time.
 
-**GitHub repo**: <https://github.com/thiagoeolima/nginx-rtmps>
+**GitHub repo**: <https://github.com/mach7enterprises/rtmps>
 
-**Docker Hub image**: <https://hub.docker.com/r/thiagoeolima/nginx-rtmps/>
+**Docker Hub image**: <https://hub.docker.com/r/mach7enterprises/rtmps/>
 
 ## Details
 
@@ -31,13 +31,13 @@ The main purpose (and test case) to build it was to allow streaming from
 * For the simplest case, just run a container with this image:
 
 ```bash
-docker run -it -p 1935:1935 --name nginx-rtmps thiagoeolima/nginx-rtmps
+docker run -it -p 1935:1935 --name nginx-rtmps mach7enterprises/rtmps
 ```
 
 * Facebook and Youtube:
 
 ```bash
-docker run -it -p 1935:1935 -e FACEBOOK_KEY=<key> -e YOUTUBE_KEY=<key> thiagoeolima/nginx-rtmps
+docker run -it -p 1935:1935 -e FACEBOOK_KEY=<key> -e YOUTUBE_KEY=<key> mach7enterprises/rtmps
 ```
 
 * OBS
@@ -49,7 +49,7 @@ rtmp://localhost:1935/live
 * Instagram:
 
 ```bash
-docker run -it -p 1935:1935 -e INSTAGRAM_KEY=<key> thiagoeolima/nginx-rtmps
+docker run -it -p 1935:1935 -e INSTAGRAM_KEY=<key> mach7enterprises/rtmps
 ```
 
 * OBS
@@ -79,7 +79,7 @@ rtmp://localhost:1935/instagram
 If something is not working you can check the logs of the container with:
 
 ```bash
-docker logs nginx-rtmp
+docker logs nginx-rtmps
 ```
 
 ## Extending
@@ -87,7 +87,7 @@ docker logs nginx-rtmp
 If you need to modify the configurations you can create a file `nginx.conf` and replace the one in this image using a `Dockerfile` that is based on the image, for example:
 
 ```Dockerfile
-FROM thiagoeolima/nginx-rtmps
+FROM mach7enterprises/rtmps
 
 COPY nginx.conf /etc/nginx/nginx.conf
 ```
@@ -111,7 +111,7 @@ rtmp {
 	    #push rtmp://a.rtmp.youtube.com/live2/<key>;
 	    #push rtmp://127.0.0.1:19350/rtmp/<key>;
         }
-        
+
         application instagram {
             live on;
             record off;
