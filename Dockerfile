@@ -77,7 +77,7 @@ ENV TWITCH_URL rtmp://live.twitch.tv/app/
 ENV TWITCH_KEY ""
 
 #Youtube
-ENV YOUTUBE_URL rtmp://a.rtmp.youtube.com/live22/
+ENV YOUTUBE_URL rtmp://a.rtmp.youtube.com/live2/
 ENV YOUTUBE_KEY ""
 
 #Facebook
